@@ -1,0 +1,45 @@
+<svg viewBox="0 0 200 280" height="280" width="200" xmlns="http://www.w3.org/2000/svg">
+  
+  <rect stroke-width="9" stroke="#1C2C2E" fill="#FAF8F2" ry="15" rx="15" height="280" width="200"></rect>
+  
+  
+  <rect stroke-width="3" stroke="#EDE4D2" fill="none" ry="10" rx="10" height="262" width="182" y="9" x="9"></rect>
+
+  
+  
+  <g transform="translate(100,115)">
+    
+    <path stroke-width="4" stroke="#1C2C2E" fill="#C0392B" d="M-27,33 Q-37,78 -32,104 L32,104 Q37,78 27,33"></path>
+
+    
+    <rect stroke-width="3" stroke="#1C2C2E" fill="#F8D9C8" rx="3" height="13" width="20" y="22" x="-10"></rect>
+
+    
+    
+    <ellipse fill="#26334A" ry="16" rx="12" cy="11" cx="-13"></ellipse>
+    
+    <ellipse fill="#26334A" ry="16" rx="12" cy="11" cx="13"></ellipse>
+
+    
+    <ellipse stroke-width="3" stroke="#1C2C2E" fill="#F8D9C8" ry="20" rx="18.5" cy="13" cx="0"></ellipse>
+
+    
+    <circle fill="#1C2C2E" r="2" cy="11" cx="-7"></circle>
+    <circle fill="#1C2C2E" r="2" cy="11" cx="7"></circle>
+
+    
+    <path stroke-width="1.6" stroke="#1C2C2E" fill="none" d="M-5.5,21 Q0,23.5 5.5,21"></path>
+
+    
+    
+    <rect stroke-width="3.5" stroke="#1C2C2E" fill="#F4C430" rx="2" height="9" width="46" y="-17" x="-23"></rect>
+
+    
+    <path stroke-width="3.5" stroke="#1C2C2E" fill="#F4C430" d="M-23,-8 L-19,-29 L-9,-13 L0,-32 L9,-13 L19,-29 L23,-8"></path>
+
+    
+    <circle fill="#E74C3C" r="2.5" cy="-23" cx="-13"></circle>
+    <circle fill="#E74C3C" r="2.8" cy="-32" cx="0"></circle>
+    <circle fill="#E74C3C" r="2.5" cy="-23" cx="13"></circle>
+  </g>
+</svg>

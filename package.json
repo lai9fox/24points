@@ -1,0 +1,8 @@
+{
+  "name": "twenty-four-game",
+  "version": "2.0.0",
+  "description": "24 点联机对战游戏（纯前端，无后端）",
+  "scripts": {
+    "dev": "npx serve public -l 4567"
+  }
+}

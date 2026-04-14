@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>24 点 - 联机对战</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- 首页 -->
+    <div id="screen-home" class="screen active">
+      <h1 class="title">24</h1>
+      <p class="subtitle">用 4 张牌凑出 24 点</p>
+      <div class="menu">
+        <button id="btn-solo" class="btn btn-primary">单人练习</button>
+        <button id="btn-create" class="btn btn-secondary">创建房间</button>
+        <button id="btn-join" class="btn btn-secondary">加入房间</button>
+      </div>
+    </div>
+
+    <!-- 加入房间 -->
+    <div id="screen-join" class="screen">
+      <h2>加入房间</h2>
+      <input id="input-room-id" type="text" placeholder="输入 6 位房间号" maxlength="6" autocomplete="off">
+      <p class="hint">若连接失败，使用代理工具可能导致 WebRTC 无法连通，请尝试关闭代理或切换网络。</p>
+      <div class="menu">
+        <button id="btn-join-confirm" class="btn btn-primary" type="button">加入</button>
+        <button id="btn-join-back" class="btn btn-ghost" type="button">返回</button>
+      </div>
+      <div id="join-loading-overlay" class="join-loading-overlay" hidden aria-live="polite" aria-busy="false">
+        <div class="loading-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+        <span class="join-loading-text">正在连接房间…</span>
+      </div>
+    </div>
+
+    <!-- 等待对手 -->
+    <div id="screen-waiting" class="screen">
+      <h2>等待对手加入</h2>
+      <div class="room-code-display">
+        <span id="room-code-text"></span>
+        <button id="btn-copy-room" class="btn btn-ghost btn-small">复制</button>
+      </div>
+      <p class="hint">将房间号发送给你的对手</p>
+      <div class="loading-dots"><span></span><span></span><span></span></div>
+      <button id="btn-waiting-back" class="btn btn-ghost">取消</button>
+    </div>
+
+    <!-- 游戏画面 -->
+    <div id="screen-game" class="screen">
+      <div id="game-header">
+        <button id="btn-back" class="btn-icon" title="返回">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div id="score-board">
+          <div class="score-item me">
+            <span class="score-label">我</span>
+            <span id="score-me" class="score-value">0</span>
+          </div>
+          <div class="score-divider">:</div>
+          <div class="score-item opponent">
+            <span class="score-label" id="opponent-label">对手</span>
+            <span id="score-opponent" class="score-value">0</span>
+          </div>
+        </div>
+        <div id="timer">--</div>
+        <div id="round-info">第 <span id="round-num">1</span> / <span id="round-total">5</span> 轮</div>
+      </div>
+
+      <div id="cards-container"></div>
+
+      <div id="expr-builder">
+        <div id="expr-drop-zone">
+          <span class="expr-placeholder">拖动卡牌到此处，或点击卡牌构建表达式</span>
+        </div>
+        <div id="operator-bar">
+          <button class="op-btn" data-op="+">+</button>
+          <button class="op-btn" data-op="-">−</button>
+          <button class="op-btn" data-op="*">×</button>
+          <button class="op-btn" data-op="/">÷</button>
+          <button class="op-btn paren-btn" data-op="(" id="btn-paren-open">(</button>
+          <button class="op-btn paren-btn" data-op=")" id="btn-paren-close">)</button>
+          <button class="op-btn undo-btn" id="btn-undo">↩</button>
+          <button class="op-btn clear-btn" id="btn-clear-expr">✕</button>
+        </div>
+      </div>
+
+      <div id="input-area">
+        <input id="expr-input" type="text" placeholder="或在此处直接输入表达式" autocomplete="off">
+        <button id="btn-submit" class="btn btn-primary">提交</button>
+      </div>
+
+      <div id="message-area">
+        <p id="game-message"></p>
+      </div>
+
+      <div id="game-actions">
+        <button id="btn-no-solution" class="btn btn-ghost btn-small btn-no-solution">无解</button>
+        <button id="btn-give-up" class="btn btn-ghost btn-small btn-give-up">放弃</button>
+        <button id="btn-continue" class="btn btn-primary btn-small" style="display:none">继续</button>
+      </div>
+    </div>
+
+    <!-- 结算 -->
+    <div id="screen-result" class="screen">
+      <h2 id="result-title"></h2>
+      <div id="result-scores"></div>
+      <div class="menu">
+        <button id="btn-again" class="btn btn-primary">再来一局</button>
+        <button id="btn-home" class="btn btn-ghost">返回首页</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+  <script src="js/solver.js"></script>
+  <script src="js/cards.js"></script>
+  <script src="js/expression.js"></script>
+  <script src="js/timer.js"></script>
+  <script src="js/network.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>

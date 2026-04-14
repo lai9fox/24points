@@ -1,0 +1,43 @@
+<svg viewBox="0 0 200 280" height="280" width="200" xmlns="http://www.w3.org/2000/svg">
+  
+  <rect stroke-width="9" stroke="#1C2C2E" fill="#FAF8F2" ry="15" rx="15" height="280" width="200"></rect>
+  
+  
+  <rect stroke-width="3" stroke="#EDE4D2" fill="none" ry="10" rx="10" height="262" width="182" y="9" x="9"></rect>
+
+  
+  
+  <g transform="translate(100,118)">
+    
+    <rect stroke-width="4" stroke="#1C2C2E" fill="#26334A" rx="6" height="72" width="52" y="32" x="-26"></rect>
+
+    
+    <line stroke-linecap="round" stroke-width="11" stroke="#26334A" y2="68" x2="-47" y1="38" x1="-26"></line>
+
+    
+    <line stroke-linecap="round" stroke-width="11" stroke="#26334A" y2="68" x2="47" y1="38" x1="26"></line>
+
+    
+    <rect stroke-width="3" stroke="#1C2C2E" fill="#F8D9C8" rx="3" height="13" width="22" y="23" x="-11"></rect>
+
+    
+    <ellipse stroke-width="3" stroke="#1C2C2E" fill="#F8D9C8" ry="21" rx="19" cy="14" cx="0"></ellipse>
+
+    
+    <circle fill="#1C2C2E" r="2.2" cy="11" cx="-7"></circle>
+    <circle fill="#1C2C2E" r="2.2" cy="11" cx="7"></circle>
+
+    
+    <path stroke-width="1.8" stroke="#1C2C2E" fill="none" d="M-6,21 Q0,23 6,21"></path>
+
+    
+    <ellipse stroke-width="3.5" stroke="#1C2C2E" fill="#26334A" ry="7" rx="23" cy="-7" cx="0"></ellipse>
+
+    
+    <path stroke-width="3.5" stroke="#1C2C2E" fill="#26334A" d="M-22,-7 L-19,-33 L19,-33 L22,-7"></path>
+
+    
+    <path stroke-linecap="round" stroke-width="4.5" stroke="#E74C3C" fill="none" d="M18,-29 Q37,-48 48,-27"></path>
+    <path stroke-linecap="round" stroke-width="3" stroke="#E74C3C" fill="none" d="M18,-29 Q35,-43 45,-25"></path>
+  </g>
+</svg>
