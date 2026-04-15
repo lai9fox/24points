@@ -1,4 +1,6 @@
-# 将 public/ 部署到 GitHub Pages（仓库 Settings → Pages → Source 选 GitHub Actions）
+# 将 public/ 部署到 GitHub Pages
+# 仓库 Settings → Pages → Build and deployment → Source 选「GitHub Actions」
+# 若首次部署卡在「等待环境审批」，打开 Actions 运行记录或 Environments → github-pages 批准部署
 name: Deploy to GitHub Pages
 
 on:
@@ -8,28 +10,37 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
 
       - name: Upload static files
         uses: actions/upload-pages-artifact@v3
         with:
           path: public
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
